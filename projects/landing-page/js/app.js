@@ -70,11 +70,21 @@ class Section {
         // Create element
         this.list_menu.insertAdjacentHTML("beforeend", html_content);
     }
+    clickHandler_goToSection(event) {
+        event.preventDefault();
+        // grap section id from event target
+        let section_id = event.target.dataset.sectionId;
+        let section_elem = document.querySelector(`#${section_id}`);
+        section_elem.scrollIntoView({ behavior: 'smooth' });
+    }
     addNewSection() {
         // create new section
         this.createNewSection();
         // create new navigation button
         this.create_NewNav();
+        // Modify behavior Event to scrol smooth to section
+        this.list_menu.addEventListener('click', this.clickHandler_goToSection);
+
     }
 
 }
@@ -93,9 +103,7 @@ section = new Section();
 function init_sections(num_sections) {
     for (let i = 0; i < num_sections; i++) { section.addNewSection(); }
 }
-function clickHandler_addNewSection() {
-    section.addNewSection();
-}
+
 
 
 /**
@@ -118,12 +126,9 @@ function clickHandler_addNewSection() {
  * Begin Events
  *
 */
-function clickHandler_goToSection(event) {
-    event.preventDefault();
-    // grap section id from event target
-    section_id = event.target.dataset.sectionId;
-    section_elem = document.querySelector(`#${section_id}`);
-    section_elem.scrollIntoView({behavior:'smooth'})
+// Add event listener to Add section button
+function clickHandler_button_addNewSection() {
+    section.addNewSection();
 }
 // Build menu 
 
@@ -133,5 +138,3 @@ function clickHandler_goToSection(event) {
 
 // Intial number of sections
 init_sections(4);
-const nav_bar_elem = document.querySelector("#navbar__list");
-nav_bar_elem.addEventListener('click', clickHandler_goToSection);
