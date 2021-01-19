@@ -20,6 +20,8 @@ class Section {
         this.lastId = 0;
         // capture main element once in this class
         this.mainElement = document.querySelector("main");
+        // capture #navbar__list element once in this class
+        this.list_menu = document.querySelector("#navbar__list");
     }
     get HTML_Content() {
         // html content inside each section
@@ -39,7 +41,7 @@ class Section {
       </div>`;
         return html_content;
     }
-    addNewSection() {
+    createNewSection() {
         // increment lastId for each calling
         this.lastId += 1;
         // grab the html content that fill in each section
@@ -60,18 +62,41 @@ class Section {
         // Append new section element to main element
         this.mainElement.appendChild(new_secElem);
     }
+    create_NewNav() {
+        // Create new list item
+        const new_list = document.createElement("li");
+        // Create new list anchor
+        const new_anchor = document.createElement("a");
+        // Set attribute ref to id section
+        new_anchor.setAttribute('href', `#section${this.lastId}`)
+        // append new anchor to the new list
+        new_list.appendChild(new_anchor);
+        // Add text to the new list
+        new_anchor.textContent = `Section ${this.lastId}`;
+        // append new list to the list menue
+        this.list_menu.appendChild(new_list);
+    }
+    addNewSection() {
+        this.createNewSection();
+        this.create_NewNav();
+    }
+
 }
+
 /**
  * Define Global Variables
  *
 */
 section = new Section();
-
 /**
  * End Global Variables
  * Start Helper Functions
  *
 */
+// helper function to make intital startup sections
+function init_sections(num_sections) {
+    for (let i = 0; i < num_sections; i++) { section.addNewSection(); }
+}
 
 
 
@@ -102,8 +127,9 @@ section = new Section();
 
 // Set sections as active
 
+// Intial number of sections
+init_sections(4);
 
-section.addNewSection();
-section.addNewSection();
-section.addNewSection();
-section.addNewSection();
+// test
+const elem = document.querySelector('#section3');
+console.log(elem.dataset.nav)
