@@ -63,23 +63,17 @@ class Section {
         this.mainElement.appendChild(new_secElem);
     }
     create_NewNav() {
-        // Create new list item
-        const new_list = document.createElement("li");
-        // Create new list anchor
-        const new_anchor = document.createElement("a");
-        // Set attribute ref to id section
-        new_anchor.setAttribute('href', `#section${this.lastId}`);
-        new_anchor.setAttribute('class', 'menu__link');
-
-        // append new anchor to the new list
-        new_list.appendChild(new_anchor);
-        // Add text to the new list
-        new_anchor.textContent = `Section ${this.lastId}`;
-        // append new list to the list menue
-        this.list_menu.appendChild(new_list);
+        // Create html content for navigation bar
+        let html_content = `<li>\
+        <a href="#section${this.lastId}" class="menu__link"\
+        data-section-id=section${this.lastId}>Section ${this.lastId}</a></li>`
+        // Create element
+        this.list_menu.insertAdjacentHTML("beforeend", html_content);
     }
     addNewSection() {
+        // create new section
         this.createNewSection();
+        // create new navigation button
         this.create_NewNav();
     }
 
@@ -99,8 +93,7 @@ section = new Section();
 function init_sections(num_sections) {
     for (let i = 0; i < num_sections; i++) { section.addNewSection(); }
 }
-function clickHandler_section()
-{
+function clickHandler_addNewSection() {
     section.addNewSection();
 }
 
@@ -125,7 +118,13 @@ function clickHandler_section()
  * Begin Events
  *
 */
-
+function clickHandler_goToSection(event) {
+    event.preventDefault();
+    // grap section id from event target
+    section_id = event.target.dataset.sectionId;
+    section_elem = document.querySelector(`#${section_id}`);
+    section_elem.scrollIntoView({behavior:'smooth'})
+}
 // Build menu 
 
 // Scroll to section on link click
@@ -134,7 +133,5 @@ function clickHandler_section()
 
 // Intial number of sections
 init_sections(4);
-
-// test
-const elem = document.querySelector('#section3');
-console.log(elem.dataset.nav)
+const nav_bar_elem = document.querySelector("#navbar__list");
+nav_bar_elem.addEventListener('click', clickHandler_goToSection);
