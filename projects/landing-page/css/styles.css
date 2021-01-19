@@ -63,6 +63,25 @@ section {
 
 /* ---- Module Rules ---- */
 
+/* Button */
+.container_button
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+button
+{   background: rgb(190, 167, 197);
+    font-size: 1.2em;
+    width: 100px;
+    height: 70px;
+    line-height: 1.5em;
+}
+button:hover {
+    background: #333;
+    color: #fff;
+    transition: ease 0.3s all;
+}
 /* Navigation Styles*/
 .navbar__menu ul {
     padding-left: 0;

@@ -99,7 +99,10 @@ section = new Section();
 function init_sections(num_sections) {
     for (let i = 0; i < num_sections; i++) { section.addNewSection(); }
 }
-
+function clickHandler_section()
+{
+    section.addNewSection();
+}
 
 
 /**
