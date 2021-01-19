@@ -68,7 +68,9 @@ class Section {
         // Create new list anchor
         const new_anchor = document.createElement("a");
         // Set attribute ref to id section
-        new_anchor.setAttribute('href', `#section${this.lastId}`)
+        new_anchor.setAttribute('href', `#section${this.lastId}`);
+        new_anchor.setAttribute('class', 'menu__link');
+
         // append new anchor to the new list
         new_list.appendChild(new_anchor);
         // Add text to the new list
