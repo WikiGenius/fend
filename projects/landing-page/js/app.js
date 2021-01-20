@@ -85,6 +85,7 @@ class Section {
 section = new Section();
 active_section_id = null;
 list_menu = document.querySelector("#navbar__list");
+srcoll_Top_element = document.querySelector("#scrolToTop");
 /**
  * End Global Variables
  * Start Helper Functions
@@ -157,17 +158,23 @@ function clickHandler_button_addNewSection() {
     // update mySections
     mySections = document.querySelectorAll('section');
 }
+// Add event listener to go To Section
 function clickHandler_goToSection(event) {
     event.preventDefault();
     // grap section id from event target
     let section_id = event.target.dataset.sectionId;
     let section_elem = document.querySelector(`#${section_id}`);
     section_elem.scrollIntoView({ behavior: 'smooth' });
-    
+
+}
+// Add event listener to go To top
+function clickHandler_goToTop() {
+    window.scrollTo(0, 0);
 }
 // Modify behavior Event to scrol smooth to section
 list_menu.addEventListener('click', clickHandler_goToSection);
 document.addEventListener('scroll', activeSection);
+srcoll_Top_element.addEventListener('click', clickHandler_goToTop);
 // Build menu 
 
 // Scroll to section on link click
