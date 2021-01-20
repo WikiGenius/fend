@@ -130,7 +130,25 @@ function activeSection() {
         }
     })
 }
+function scrollHandler() {
+    // active section
+    activeSection()
 
+    if ((window.scrollY / window.innerHeight) * 100 < 40) {
+        srcoll_Top_element.classList.add('display_none');
+    }
+    else {
+        srcoll_Top_element.classList.remove('display_none');
+
+    }
+    if ((window.scrollY / window.innerHeight) * 100 < 20) {
+        list_menu.classList.add('display_none');
+
+    }
+    else {
+        list_menu.classList.remove('display_none');
+    }
+}
 
 /**
  * End Helper Functions
@@ -173,7 +191,7 @@ function clickHandler_goToTop() {
 }
 // Modify behavior Event to scrol smooth to section
 list_menu.addEventListener('click', clickHandler_goToSection);
-document.addEventListener('scroll', activeSection);
+document.addEventListener('scroll', scrollHandler);
 srcoll_Top_element.addEventListener('click', clickHandler_goToTop);
 // Build menu 
 

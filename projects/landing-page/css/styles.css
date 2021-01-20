@@ -283,3 +283,7 @@ section.your-active-class .landing__container::after {
     box-shadow: 0px 0px 10px 5px rgba(196, 8, 149, 0.9);;
 
 }
+.display_none
+{
+    display: none;
+}
