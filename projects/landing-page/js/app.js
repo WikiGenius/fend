@@ -17,7 +17,7 @@ srcoll_Top_element = document.querySelector("#scrolToTop");
  *
 */
 
-function init_sections(num_sections) {
+init_sections = (num_sections) => {
     for (let i = 0; i < num_sections; i++) { section.addNewSection(); }
 }
 /**
@@ -27,13 +27,13 @@ function init_sections(num_sections) {
 */
 
 // Add event listener to Add section button
-function clickHandler_button_addNewSection() {
+clickHandler_button_addNewSection = () => {
     section.addNewSection();
     // update mySections
     mySections = document.querySelectorAll('section');
 }
 // Add event listener to go To Section
-function clickHandler_goToSection(event) {
+clickHandler_goToSection = (event) => {
     event.preventDefault();
     // grap section id from event target
     let section_id = event.target.dataset.sectionId;
@@ -42,11 +42,11 @@ function clickHandler_goToSection(event) {
 
 }
 // Add event listener to go To top
-function clickHandler_goToTop() {
+clickHandler_goToTop = () => {
     window.scrollTo(0, 0);
 }
 // Add event listener to scroll
-function scrollHandler() {
+scrollHandler = () => {
     // active section
     activeSection(mySections)
 

@@ -29,7 +29,7 @@ class Section {
       </div>`;
         return html_content;
     }
-    createNewSection() {
+    createNewSection = () => {
         // increment lastId for each calling
         this.lastId += 1;
         // grab the html content that fill in each section
@@ -47,7 +47,7 @@ class Section {
         // Append new section element to main element
         this.mainElement.appendChild(new_secElem);
     }
-    create_NewNav() {
+    create_NewNav = () => {
         // Create html content for navigation bar
         let html_content = `<li>
         <a href="#section${this.lastId}" class="menu__link"
@@ -57,7 +57,7 @@ class Section {
         this.list_menu.insertAdjacentHTML("beforeend", html_content);
     }
 
-    addNewSection() {
+    addNewSection = () => {
         // create new section
         this.createNewSection();
         // create new navigation button
@@ -67,7 +67,7 @@ class Section {
 
 // helper function to make intital startup sections
 
-function activeSection(mySections) {
+activeSection = (mySections) => {
     // loop over sections
     mySections.forEach(element => {
         let rect = element.getBoundingClientRect();
