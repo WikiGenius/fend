@@ -1,13 +1,18 @@
 # Landing Page Project
 
-## Table of Contents
+The code in this repository is meant to satisfy the project rubric of the Front Ent Web Developer nanodegree. Landing page is the conversion of a static page to a page that allows some sort of interaction. The dynamicity is achieved through javascript.
+_____________________________________________________________________________
 
-* [Instructions](#instructions)
+Starter code taken from udacity repository.
+_____________________________________________________________________________
 
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+In this project, I added some features like
+<ul>
+<li>Build sections dynamically by button
+<li>Navigation is built dynamically as an unordered list
+<li>Styling has been added for active states.
+<li>When clicking an item from the navigation menu, the link should scroll to the appropriate section.
+<li>add some event listeners like click and scroll
+<li>build scroll top button
+<li>All features are usable across modern desktop, tablet, and phone browsers.
+</ul>
